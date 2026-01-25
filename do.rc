@@ -1,0 +1,8 @@
+# 開發環境預設使用的命令
+TARGET_PROJECT_COMMAND=dev
+# 開發環境伺服器啟動連結埠
+TARGET_PROJECT_DEV_SERVER_PORT=3000
+# 開發環境伺服器稱呼
+TARGET_PROJECT_DEV_SERVER_HOSTNAME=page
+# 專案容器使用的虛擬網路
+INFRA_DOCKER_NETWORK=iwa-dev-network
