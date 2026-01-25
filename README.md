@@ -16,14 +16,14 @@ MVC 擴展框架是基於 PureMVC 架構概念為基礎，採用 JavaScript 實�
 下列為本專案完成的設計樣式
 
 + Facade
-    - [Model View Controller](./src/pattern/facade/mvc)、[testcase](./test/pattern/facade-mvc.spec.ts)
-    - [Progress ( Pipe & Filter )](./src/pattern/facade/progress)、[testcase](./test/pattern/facade-progress.spec.ts)
-    - [Container](./src/pattern/facade/container)、[testcase](./test/pattern/facade-container.spec.ts)
-+ [Singleton](./src/pattern/singleton)、[testcase](./test/pattern/singleton.spec.ts)
-+ [Observer](./src/pattern/observer)、[testcase](./test/pattern/observer.spec.ts)
-+ [Command](./src/pattern/command)、[testcase](./test/pattern/command.spec.ts)
-+ [Mediator](./src/pattern/mediator)、[testcase](./test/pattern/mediator.spec.ts)
-+ [Proxy](./src/pattern/proxy)、[testcase](./test/pattern/proxy.spec.ts)
+    - [Model View Controller](./app/src/pattern/facade/mvc)、[testcase](./app/test/pattern/facade-mvc.spec.ts)
+    - [Progress ( Pipe & Filter )](./app/src/pattern/facade/progress)、[testcase](./app/test/pattern/facade-progress.spec.ts)
+    - [Container](./app/src/pattern/facade/container)、[testcase](./app/test/pattern/facade-container.spec.ts)
++ [Singleton](./app/src/pattern/singleton)、[testcase](./app/test/pattern/singleton.spec.ts)
++ [Observer](./app/src/pattern/observer)、[testcase](./app/test/pattern/observer.spec.ts)
++ [Command](./app/src/pattern/command)、[testcase](./app/test/pattern/command.spec.ts)
++ [Mediator](./app/src/pattern/mediator)、[testcase](./app/test/pattern/mediator.spec.ts)
++ [Proxy](./app/src/pattern/proxy)、[testcase](./app/test/pattern/proxy.spec.ts)
 
 ## PureMVC 框架實用規劃
 
