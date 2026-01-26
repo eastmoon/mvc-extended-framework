@@ -1,6 +1,5 @@
 echo "> Create cache directory"
-[ ! -d ${CLI_REPO_DIR}/cache/develop/dist ] && mkdir -p ${CLI_REPO_DIR}/cache/develop/dist
-[ ! -d ${CLI_REPO_DIR}/cache/develop/node_modules ] && mkdir -p ${CLI_REPO_DIR}/cache/develop/node_modules
+[ ! -d ${CLI_REPO_DIR}/cache/develop ] && mkdir -p ${CLI_REPO_DIR}/cache/develop
 
 echo "> Build image"
 docker build --rm \

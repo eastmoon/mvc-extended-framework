@@ -28,5 +28,4 @@ docker run -ti --rm ^
   -v %cd%:/usr/local/repo ^
   -v %cd%\do.rc:/usr/local/devops/do.rc:ro ^
   -v %cd%\do.yml:/usr/local/devops/do.yml:ro ^
-  -v %cd%\conf\devops:/usr/local/devops/shell ^
   devops-cli-fw %*

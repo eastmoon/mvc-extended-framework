@@ -1,0 +1,25 @@
+{
+  "name": "mvc-extended-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "devDependencies": {
+    "@types/chai": "^5.2.3",
+    "@types/mocha": "^10.0.10",
+    "chai": "^6.2.2",
+    "copy-webpack-plugin": "^13.0.1",
+    "mocha": "^11.7.5",
+    "ts-loader": "^9.5.4",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "scripts": {
+    "build": "webpack",
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}

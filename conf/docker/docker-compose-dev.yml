@@ -10,20 +10,31 @@ networks:
     external: true
 
 services:
-  nodejs:
+  mvcef:
     image: ${SRV_IMAGE_NAME}
     container_name: ${SRV_CONTAINER_NAME}
     hostname: ${SRV_HOSTNAME}
     stdin_open: true
     tty: true
+    volumes:
+      - ${PROJECT_DIR}/app/mvcef:/app
+      - ${PROJECT_DIR}/cache/develop/mvcef/dist:/app/dist
+      - ${PROJECT_DIR}/cache/develop/mvcef/node_modules:/app/node_modules
+    command: [ "${SRV_COMMAND}" ]
+    working_dir: /app
+    networks:
+      - srv-network
+
+  demo:
+    image: ${SRV_IMAGE_NAME}
+    container_name: ${SRV_CONTAINER_NAME}-demo
     ports:
       - ${SRV_PORT}:${SRV_PORT}
     volumes:
-      - ${PROJECT_DIR}/app:/app
-      - ${PROJECT_DIR}/cache/develop/dist:/app/dist
-      - ${PROJECT_DIR}/cache/develop/node_modules:/app/node_modules
-    environment:
-      - PORT=${SRV_PORT}
+      - ${PROJECT_DIR}/app/demo:/app
+      - ${PROJECT_DIR}/cache/develop/demo/dist:/app/dist
+      - ${PROJECT_DIR}/cache/develop/demo/node_modules:/app/node_modules
+      - ${PROJECT_DIR}/cache/develop/mvcef/dist:/app/mvcef
     command: [ "${SRV_COMMAND}" ]
     working_dir: /app
     networks:
