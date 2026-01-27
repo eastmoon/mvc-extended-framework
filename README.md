@@ -21,9 +21,9 @@ MVC 擴展框架是基於 PureMVC 架構概念為基礎，採用 JavaScript 實�
 
 ## 功能描述
 
-+ 使用 Node.js 的 typescript 發佈成 .js 檔案供 HTML 引用
++ 使用 Node.js 的 typescript 發佈成 .js 函示庫供其他專案引用
 + 使用 Node.js 與 Mocha 測試與驗證程式碼
-+ 可跨 iframe 存取實體
++ 可跨 iframe 存取 MVC 實體
 + 可跨 page ( at same browser ) 事件通訊
 
 ## 框架設計
