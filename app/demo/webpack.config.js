@@ -27,12 +27,14 @@ module.exports = {
     })
   ],
   devServer: {
-    static: {
-      directory: path.join(__dirname, 'public'), // Serve static files from 'public'
-    },
+    watchFiles: ['src/**/*.js', 'src/**/*.html'],
     compress: true, // Enable gzip compression
-    port: 3000, // Use port 9000
+    port: 3000, // Use port 3000
     open: true, // Open the browser automatically when the server starts
     hot: true, // Enable Hot Module Replacement
+  },
+  watchOptions: {
+    aggregateTimeout: 500,
+    poll: 1000,
   },
 };
