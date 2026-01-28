@@ -19,6 +19,8 @@ MVC 擴展框架是基於 PureMVC 架構概念為基礎，採用 JavaScript 實�
     - 使用 ```npm run serve``` 啟動開發伺服器驗證畫面
     - 使用 ```npm run build``` 發佈函示庫供其他專案使用
 
+demo 專案主要是用來驗證與測試 MVC 擴展框架的範例專案，因此，其專案啟動會需引入一個來自 mvcef 的發佈目錄，而這部分的內容來自 mvcef 的 ```npm run build``` 產出。 
+
 ## 功能描述
 
 + 使用 Node.js 的 typescript 發佈成 .js 函示庫供其他專案引用。
