@@ -1,1 +1,12 @@
 desc: "Develop mode."
+attr:
+  TARGET_PROJECT_STOP: 0
+args:
+  --stop :
+    var: TARGET_PROJECT_STOP
+    type: bool
+    desc: "Stop container if dev-server was on work."
+  --into:
+    var: TARGET_CONTAINER_NAME
+    type: string
+    desc: "Startup container and into it, but it will not start dev-server."

@@ -12,7 +12,7 @@ networks:
 services:
   mvcef:
     image: ${SRV_IMAGE_NAME}
-    container_name: ${SRV_CONTAINER_NAME}
+    container_name: ${SRV_CONTAINER_NAME}-mvcef
     hostname: ${SRV_HOSTNAME}
     stdin_open: true
     tty: true

@@ -8,10 +8,10 @@ MVC 擴展框架是基於 PureMVC 架構概念為基礎，採用 JavaScript 實�
 
 ### 開發模式
 
-使用指令 ```do dev``` 啟動開發環境，預設進入 [mvcef](./app/mvcef) 專案內，若要進入 [demo](./app/demo) 請如下操作。
+使用指令 ```do dev``` 啟動開發環境，先後進入不同專案進行相應操作與驗證。
 
 + [mvcef](./app/mvcef) 為 mvc-extended-framework 核心專案
-    - 使用 ```do dev``` 預設進入
+    - 使用 ```do dev --into=mvcef``` 進入
     - 使用 ```npm run test``` 驗證單元測試是否完成
     - 使用 ```npm run build``` 發佈函示庫供其他專案使用
 + [demo](./app/demo)
@@ -19,7 +19,7 @@ MVC 擴展框架是基於 PureMVC 架構概念為基礎，採用 JavaScript 實�
     - 使用 ```npm run serve``` 啟動開發伺服器驗證畫面
     - 使用 ```npm run build``` 發佈函示庫供其他專案使用
 
-demo 專案主要是用來驗證與測試 MVC 擴展框架的範例專案，因此，其專案啟動會需引入一個來自 mvcef 的發佈目錄，而這部分的內容來自 mvcef 的 ```npm run build``` 產出。 
+demo 專案主要是用來驗證與測試 MVC 擴展框架的範例專案，因此，其專案啟動會需引入一個來自 mvcef 的發佈目錄，而這部分的內容來自 mvcef 的 ```npm run build``` 產出。
 
 ## 功能描述
 
