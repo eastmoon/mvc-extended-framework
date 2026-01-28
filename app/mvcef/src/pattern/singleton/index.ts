@@ -7,6 +7,8 @@ author: jacky.chen
 
 // Declare module variable
 let instances : { [key: string]: Singleton } = {};
+let rootWin : any = null;
+let uid : string = btoa("SingletonRetrieveInstances");
 
 // Declare function
 // Cross iframe page singleton pattern
@@ -42,11 +44,12 @@ interface SingletonInstances {
 
 function getRootInstance() {
     // f0. declared variable
-    const win: any= getRootWindow();
+    const win: any = getRootWindow();
     let result: any = instances;
     if (win) {
         // let firstCreateFlag = false;
-        const event = new CustomEvent<SingletonInstances>("SingletonRetrieveInstances", {
+        console.log(uid);
+        const event = new CustomEvent<SingletonInstances>(uid, {
           detail: { instances: null}
         });
         if (win === window) {
@@ -68,8 +71,9 @@ function getRootInstance() {
 }
 
 // If window exist then retrieve instance from root window.
-let rootWin: any = getRootWindow();
+rootWin = getRootWindow();
 if ( rootWin !== null ) {
+    uid = btoa(`${navigator.userAgent}, ${navigator.languages}, ${new Date().getTimezoneOffset()}, ${window.navigator.platform}`);
     instances = getRootInstance();
 }
 
@@ -93,5 +97,11 @@ export default class Singleton {
             instances[this.name] = new this();
         }
         return instances[this.name];
+    }
+    static get window() : any {
+        return rootWin;
+    }
+    static get uid() : any {
+        return uid;
     }
 }

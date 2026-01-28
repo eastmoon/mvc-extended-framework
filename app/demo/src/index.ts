@@ -2,18 +2,53 @@
 Use MVC extended framework to storage model.
 */
 // 1. Import mvc-extended-framework
-import MVC, { Proxy, IProxy } from "mvc-extended-framework";
+import MVC, { Proxy, Service } from "mvc-extended-framework";
 
+console.log(window === MVC.window);
+console.log(MVC.uid);
 // 2. Declare proxy class.
 class ContentProxy extends Proxy {
     text: string = ""
-    set($args : string): any {
+    set($args: string): any {
         this.text = $args.replace(/ /g, "_");
+    }
+
+    getText(): any {
+        return this.text;
+    }
+}
+
+class BroadcastService extends Service {
+    // Declare member variable
+    channel : BroadcastChannel = null;
+
+    // Constructor
+    constructor() {
+        super()
+        this.channel = new BroadcastChannel(`${this.name}-${MVC.uid}`);
+        if ( window === MVC.window ) {
+            this.channel.onmessage = (e) => {
+                this.receive(e);
+            }
+        }
+    }
+
+    send($args: string): any {
+        if ( this.channel !== null ) {
+            console.log(`BroadcastService send : ${$args}`);
+            this.channel.postMessage($args);
+        }
+    }
+
+    receive($args: any): any {
+        console.log(`BroadcastService received : ${$args.data}`);
+        MVC.op("ContentProxy", "set", $args.data);
     }
 }
 
 // 3. Register proxy to MVC
 MVC.register(new ContentProxy());
+MVC.register(new BroadcastService());
 // console.log(MVC.model.size);
 // console.log(MVC.model.has("ContentProxy"));
 
@@ -43,13 +78,14 @@ inputForm.addEventListener('submit', function (event: any) {
 
     // 4. Setting value into content proxy
     MVC.op("ContentProxy", "set", content);
+    MVC.op("BroadcastService", "send", content);
 });
 
 // Declare update UI function
-function updateOutput() {
-    let o: any = MVC.model.retrieve("ContentProxy");
+async function updateOutput() {
+    let text: any = await MVC.op("ContentProxy", "getText");
     outputDiv.innerHTML = `
-        <p>${o.text}</p>
+        <p>${text}</p>
     `;
 }
 
@@ -77,4 +113,12 @@ opi.addEventListener('click', function (event: any) {
     ib.innerHTML = `
         <iframe src="./index.html" style="width: 95vw; height: 65vh;"></iframe>
     `;
+});
+
+opp.addEventListener('click', function (event: any) {
+    // 1. Prevent the default form submission behavior
+    event.preventDefault();
+
+    // 2. Open new page by window
+    window.open("./index.html", "_blank");
 });

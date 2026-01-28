@@ -21,10 +21,11 @@ MVC 擴展框架是基於 PureMVC 架構概念為基礎，採用 JavaScript 實�
 
 ## 功能描述
 
-+ 使用 Node.js 的 typescript 發佈成 .js 函示庫供其他專案引用
-+ 使用 Node.js 與 Mocha 測試與驗證程式碼
-+ 可跨 iframe 存取 MVC 實體
-+ 可跨 page ( at same browser ) 事件通訊
++ 使用 Node.js 的 typescript 發佈成 .js 函示庫供其他專案引用。
++ 使用 Node.js 與 Mocha 測試與驗證程式碼。
++ 使用 Fingerprint 設計 uid，參數使用 [AmIUnique](https://amiunique.org/fingerprint) 推薦建立該當前瀏覽器的指紋。
++ 可跨 iframe 存取 MVC 實體，[Singleton](./app/mvcef/src/pattern/singleton) 存取於根 Window
++ 可跨 page 事件通訊服務，採用 [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
 
 ## 框架設計
 
