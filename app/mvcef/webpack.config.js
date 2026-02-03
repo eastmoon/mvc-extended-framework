@@ -32,7 +32,6 @@ module.exports = {
     minimizer: [
       new TerserPlugin({
         terserOptions: {
-          parallel: true, // Enable multi-process parallel running
           mangle: true, // Enable variable name mangling
           compress: {
             drop_console: true, // Remove console.log statements in production
