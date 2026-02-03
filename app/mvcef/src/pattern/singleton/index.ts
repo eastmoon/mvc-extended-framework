@@ -54,12 +54,20 @@ function getRootInstance() {
         });
         if (win === window) {
             // f1. if owner window is root, add event listancer
-            // f1-1. create root instance mapping
-            result = instances;
-            // f1-2. add event listancer, that children could retrieve instance mapping
-            win.addEventListener(event.type, ($event: CustomEvent<SingletonInstances>) => {
-                $event.detail.instances = instances;
-            });
+            // f1-1. retrieve event, check event is at listancer or not.
+            win.dispatchEvent(event);
+            if ( event.detail.instances === null ) {
+                // f1-2. event is not in listancer, create new one.
+                // f1-2.1. create root instance mapping
+                result = instances;
+                // f1-2.2. add event listancer, that children could retrieve instance mapping
+                win.addEventListener(event.type, ($event: CustomEvent<SingletonInstances>) => {
+                    $event.detail.instances = instances;
+                });
+            } else {
+                // f1-3. event is in listancer, use old one data.
+                result = event.detail.instances;
+            }
         } else {
             // f2. if owner window is not root, retrieve instance mapping from root by custom event.
             // f2-1. retrieve instance mapping object, if right window is children window.
